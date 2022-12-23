@@ -1,3 +1,129 @@
-textarea{
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: #F3F5FC;
+
+}
+
+.contenedor-principal{
+    /* border: 2px solid purple; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 94vh;
+    padding: 3vh 3vh 0 3vh;
+}
+
+
+/*------------------PC NORMAL----------------------*/
+
+.logo, .entrada, .salida {
+    margin: 0.5%;
+}
+/*------------------LOGO----------------------*/
+.logo{
+    border: 2px solid red;
+    width: 10%;
+    
+    
+}
+
+.logo img{
+    width: 120px;
+    height: 48px;
+}
+
+/*------------------ENTRADA DE TEXTO----------------------*/
+.entrada {
+    border: 2px solid green;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.texto{
+    border: 2px solid yellow;
+    margin: 5% auto;
+    width: 95%;
+    height: 70%;
+}
+.entrada textarea{
+    /*position settings*/
+    width: 98%;
+    height: 90%;
+    /*visual settings*/
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
     resize: none;
 }
+
+.aviso{
+    border: 2px solid magenta;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 95%;
+    height: 2%;
+    margin: 0 auto;
+}
+
+.botones{
+    border: 2px solid pink;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 95%;
+    height: 10%;
+    gap: 24px;
+    margin: 0 auto 1% auto;
+}
+
+.botones button{
+    width: 45%;
+    height: 70%;
+
+    /* Dark blue/dark-blue-300 */
+
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+}
+
+/*------------------RESULTADO----------------------*/
+.salida{
+    /* border: 2px solid blue; */
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 28px;
+}
+
+.mensaje, .resultado{
+    margin: 0 auto;
+}
+
+.resultado p{
+    text-align: center;
+}
+.salida img{
+    width: 90%;
+
+}
+
+
+/*------------------TABLET----------------------*/
+
+
+
+
+
+/*------------------MOVIL----------------------*/
+
