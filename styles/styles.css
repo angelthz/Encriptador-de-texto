@@ -73,7 +73,7 @@ body{
     align-items: center;
     gap: 5px;
 
-    /* border: 2px solid blueviolet; */
+    border: 2px solid blueviolet;
 }
 
 .aviso p{
@@ -96,7 +96,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* border: 2px solid crimson; */
+    border: 2px solid crimson;
 }
 
 .botones > button{
