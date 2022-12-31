@@ -325,7 +325,7 @@ button:hover{
 }
 
 /*-------------------------------------------- Movil -------------------------------------------- */
-@media screen and (max-width: 721px) {
+@media screen  and (max-width: 721px) {
     .logo{
         left: 7.5%;
         width: 85%;
