@@ -9,6 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
     </style>
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/script/main.js" defer></script>
     <title>Encriptador de texto</title>
 </head>
 
@@ -20,17 +21,16 @@
         </header>
 
         <section class="entrada">
-                    <textarea class="entrada-texto" autofocus>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolorem ratione eaque vitae, doloremque culpa animi dolores molestiae facere iste maiores alias veritatis error, eos cupiditate tenetur earum veniam laboriosam?
+                    <textarea id="encriptar-texto" class="entrada-texto" autofocus>Hola mundo este es un programa.
                     </textarea>
-    
                 <div class="aviso">
                     <img src="/styles/Vector.png">
                     <p> Solo letras minusculas y sin acentos</p>
                 </div>
     
                 <div class="botones">
-                    <button>Encriptar</button>
-                    <button>Desencriptar</button>
+                    <button id="btn-encriptar">Encriptar</button>
+                    <button id="btn-desencriptar">Desencriptar</button>
                 </div>
         </section>
 
@@ -47,7 +47,7 @@
                 </div>
     
                 <div class="btn-copiar">
-                    <button>Copiar</button>
+                    <button id="btn-copiar-texto">Copiar</button>
                 </div>
         </section>
 
