@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
     </style>
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css" />
     <title>Encriptador de texto</title>
-</head>
+  </head>
 
-<body>
-    <div class="contenedor-principal">
+  <body>
+    <header class="encabezado">
+      <img id="logo" src="/styles/Logo.png" alt="logo alura" />
+    </header>
 
-        <header class="logo">
-            <img src="/styles/Logo.png" alt="logo alura">
-        </header>
+    <section class="entrada">
+      <div class="textarea-container">
+        <textarea id="texto-original" autofocus>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolorem ratione eaque vitae, doloremque culpa animi dolores molestiae facere iste maiores alias veritatis error, eos cupiditate tenetur earum veniam laboriosam?
+                    </textarea
+        >
+      </div>
+      <div class="aviso-container">
+        <img src="/styles/Vector.png" />
+        <p>Solo letras minusculas y sin acentos</p>
+      </div>
+      <div class="botones-container">
+        <button id="btn-encriptar">Encriptar</button>
+        <button id="btn-desencriptar">Desencriptar</button>
+      </div>
+    </section>
 
-        <section class="entrada">
-                    <textarea class="entrada-texto" autofocus>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore dolorem ratione eaque vitae, doloremque culpa animi dolores molestiae facere iste maiores alias veritatis error, eos cupiditate tenetur earum veniam laboriosam?
-                    </textarea>
-    
-                <div class="aviso">
-                    <img src="/styles/Vector.png">
-                    <p> Solo letras minusculas y sin acentos</p>
-                </div>
-    
-                <div class="botones">
-                    <button>Encriptar</button>
-                    <button>Desencriptar</button>
-                </div>
-        </section>
+    <section class="salida">
+      <div class="resultado-container">
+        <textarea id="texto-resultado" readonly>
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem pariatur ad officiis quia nisi doloremque dolor eaque corporis vero dicta numquam, laudantium nemo sequi sit a harum ratione et explicabo.</textarea
+        >
+      </div>
 
-        <section class="salida">
-                <div class="resultado">
-                    <textarea id="texto-encriptado" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate eius obcaecati, nesciunt nostrum nihil enim quae consequatur praesentium. Cupiditate nulla repellat quisquam a ex nostrum iusto veniam, quidem cum?
-                    </textarea>
-                </div>
-    
-                <div class="mensaje">
-                    <img src="/styles/Munieco.png" alt="Munieco pensando">
-                    <h2>Ningun mensaje fue encontrado</h2>
-                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-                </div>
-    
-                <div class="btn-copiar">
-                    <button>Copiar</button>
-                </div>
-        </section>
+      <div class="mensaje-container">
+        <img src="/styles/Munieco.png" alt="Munieco pensando" />
+        <h2>Ningun mensaje fue encontrado</h2>
+        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+      </div>
 
-    </div>
-</body>
-
+      <div class="btn-copiar-container">
+        <button id="btn-copiar">Copiar</button>
+      </div>
+    </section>
+  </body>
 </html>
