@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
     </style>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/script/main.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="script/main.js" defer></script>
     <title>Encriptador de texto</title>
-</head>
+  </head>
 
-<body>
-    <div class="contenedor-principal">
+  <body>
+    <header class="encabezado">
+      <img id="logo" src="images/Logo.png" alt="logo alura" />
+    </header>
 
-        <header class="logo">
-            <img src="/styles/Logo.png" alt="logo alura">
-        </header>
+    <section class="entrada">
+      <div class="textarea-container">
+        <textarea id="texto-original" autofocus>Ingrese el texto aquí.</textarea>
+      </div>
+      <div class="aviso-container">
+        <img src="images/warning.png" />
+        <p>Solo letras minusculas y sin acentos</p>
+      </div>
+      <div class="botones-container">
+        <button id="btn-encriptar">Encriptar</button>
+        <button id="btn-desencriptar">Desencriptar</button>
+      </div>
+    </section>
 
-        <section class="entrada">
-                    <textarea id="encriptar-texto" class="entrada-texto" autofocus>Hola mundo este es un programa.</textarea>
-                <div class="aviso">
-                    <img src="/styles/Vector.png">
-                    <p> Solo letras minusculas y sin acentos</p>
-                </div>
-    
-                <div class="botones">
-                    <button id="btn-encriptar">Encriptar</button>
-                    <button id="btn-desencriptar">Desencriptar</button>
-                </div>
-        </section>
+    <section class="salida">
+      <div class="resultado-container">
+        <textarea id="texto-resultado" readonly>Result</textarea
+        >
+      </div>
 
-        <section class="salida">
-                <div class="resultado">
-                    <textarea id="texto-encriptado" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate eius obcaecati, nesciunt nostrum nihil enim quae consequatur praesentium. Cupiditate nulla repellat quisquam a ex nostrum iusto veniam, quidem cum?
-                    </textarea>
-                </div>
-    
-                <div class="mensaje">
-                    <img src="/styles/Munieco.png" alt="Munieco pensando">
-                    <h2>Ningun mensaje fue encontrado</h2>
-                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-                </div>
-    
-                <div class="btn-copiar">
-                    <button id="btn-copiar-texto">Copiar</button>
-                </div>
-        </section>
+      <div class="mensaje-container">
+        <img src="images/Munieco.png" alt="Munieco pensando" />
+        <h2>Ningun mensaje fue encontrado</h2>
+        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+      </div>
 
-    </div>
-</body>
-
+      <div class="btn-copiar-container">
+        <button id="btn-copiar">Copiar</button>
+      </div>
+    </section>
+  </body>
 </html>

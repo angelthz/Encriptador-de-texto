@@ -20,44 +20,49 @@ Requisitos:
 //obtner los elemntos html con los cuales vamos a trabajar
 
 //obtener el textarea donde el usuario introduce el texto que quiere encriptar
-const $textoEncriptar = document.getElementById("encriptar-texto");
-let texto = $textoEncriptar.value;
-
+const $entradaElement = document.getElementById("texto-original");
+let entradaValue = $entradaElement.value;
 
 //obtner cada uno de los botones
 const $btnEncriptar = document.getElementById("btn-encriptar");
 const $btnDesencriptar = document.getElementById("btn-desencriptar");
 
-//obtner el aviso de ningn texto encontrado
-const $mensaje = document.querySelector(".mensaje");
+
+//obtner el aviso de ningun texto encontrado
+const $mensaje = document.querySelector(".mensaje-container");
 
 //obtener los elementos ocultos
 //resultado
-const $resultadoContainer = document.querySelector(".resultado");
-const $textAreaResultado = document.getElementById("texto-encriptado");
+const $resultadoContainer = document.querySelector(".resultado-container");
+const $resultadoElement = document.getElementById("texto-resultado");
+let resultadoValue;
 //btn copiar
-const $btnCopiarContainer = document.querySelector(".btn-copiar");
+const $btnCopiarContainer = document.querySelector(".btn-copiar-container");
 
 
 //funciones
 
 //funcion para encriptar el texto
-function encriptarTexto(texto) {
+function encriptarTexto(str) {
     let textoEncriptado;
-    console.log(`Antes: ${texto}`);
-    textoEncriptado = texto.replaceAll("e","enter");
+    textoEncriptado = str.replaceAll("e","enter");
     textoEncriptado = textoEncriptado.replaceAll("i","imes");
     textoEncriptado = textoEncriptado.replaceAll("a","ai");
     textoEncriptado = textoEncriptado.replaceAll("o","ober");
     textoEncriptado = textoEncriptado.replaceAll("u","ufat");
-    console.log(`Despues: ${textoEncriptado}`);
     return textoEncriptado;
 }
 
 //funcion para desencriptar el texto
 
 function desencriptarTexto(str){
-
+    let textoEncriptado;
+    textoEncriptado = str.replaceAll("enter","e");
+    textoEncriptado = textoEncriptado.replaceAll("imes","i");
+    textoEncriptado = textoEncriptado.replaceAll("ai","a");
+    textoEncriptado = textoEncriptado.replaceAll("ober","o");
+    textoEncriptado = textoEncriptado.replaceAll("ufat","u");
+    return textoEncriptado;
 }
 
 
@@ -65,22 +70,13 @@ function desencriptarTexto(str){
 
 //boton encriptar
 $btnEncriptar.addEventListener("click", () =>{
-    //console.log($textoEncriptar.value);
-    //const res = encriptarTexto($textoEncriptar.value);
-    //mandar el resutlado al elemento resultado
+    entradaValue = $entradaElement.value;
+    $resultadoElement.textContent = encriptarTexto(entradaValue);
+});
 
-    //ocultar el mensaje
-    const estadoRes = window.getComputedStyle($resultadoContainer).getPropertyValue("display");
-    const estadoMsj = window.getComputedStyle($mensaje).getPropertyValue("display");
-    const estadoBtn = window.getComputedStyle($btnCopiarContainer).getPropertyValue("display");
-    console.log(estadoRes,estadoMsj,estadoRes);
-
-    //cambiar el estado de esas propeidades css
-
-    $mensaje.style.setProperty("display","none");
-    $resultadoContainer.style.setProperty("display","flex");
-    $btnCopiarContainer.style.setProperty("display","flex");
-
-    //mostrar el resultado
+//boton desencriptar
+$btnDesencriptar.addEventListener("click", () =>{
+    entradaValue = $entradaElement.value;
+    $resultadoElement.textContent = desencriptarTexto(entradaValue);
 });
 
