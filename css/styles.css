@@ -88,6 +88,10 @@ body{
 
 }
 
+textarea::placeholder{
+    color: #0A3871;
+}
+
 .aviso-container{
     /* border: 2px solid lightskyblue; */
     width: 90%;
@@ -125,7 +129,6 @@ body{
 .resultado-container{
     /* border: 2px solid blue; */
     height: 90%;
-    /* display: none; */
 }
 .resultado-container textarea{
     display: block;
@@ -152,7 +155,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    display: none;
+    
 }
 .mensaje-container img{
     width: 80%;
@@ -347,4 +350,15 @@ button:hover{
         width: 80%;
         height: 6vh;
     }
+}
+
+
+/* hide and unhide items*/
+.hide {
+    
+    display: none;
+}
+
+.unhide {
+    display: flex;
 }

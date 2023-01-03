@@ -19,7 +19,7 @@
 
     <section class="entrada">
       <div class="textarea-container">
-        <textarea id="texto-original" autofocus>Ingrese el texto aquí.</textarea>
+        <textarea id="texto-original" autofocus placeholder="Ingrese el texto aquí"></textarea>
       </div>
       <div class="aviso-container">
         <img src="images/warning.png" />
@@ -32,18 +32,18 @@
     </section>
 
     <section class="salida">
-      <div class="resultado-container">
+      <div class="resultado-container hide">
         <textarea id="texto-resultado" readonly>Result</textarea
         >
       </div>
 
-      <div class="mensaje-container">
+      <div class="mensaje-container unhide">
         <img src="images/Munieco.png" alt="Munieco pensando" />
         <h2>Ningun mensaje fue encontrado</h2>
         <p>Ingresa el texto que desees encriptar o desencriptar.</p>
       </div>
 
-      <div class="btn-copiar-container">
+      <div class="btn-copiar-container hide">
         <button id="btn-copiar">Copiar</button>
       </div>
     </section>

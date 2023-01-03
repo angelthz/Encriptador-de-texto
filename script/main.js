@@ -17,19 +17,22 @@ Requisitos:
 */
 
 
+
+
 //obtner los elemntos html con los cuales vamos a trabajar
 
 //obtener el textarea donde el usuario introduce el texto que quiere encriptar
 const $entradaElement = document.getElementById("texto-original");
-let entradaValue = $entradaElement.value;
+
 
 //obtner cada uno de los botones
 const $btnEncriptar = document.getElementById("btn-encriptar");
 const $btnDesencriptar = document.getElementById("btn-desencriptar");
+const $btnCopiar = document.getElementById("btn-copiar");
 
 
 //obtner el aviso de ningun texto encontrado
-const $mensaje = document.querySelector(".mensaje-container");
+const $mensajeContainer = document.querySelector(".mensaje-container");
 
 //obtener los elementos ocultos
 //resultado
@@ -38,6 +41,11 @@ const $resultadoElement = document.getElementById("texto-resultado");
 let resultadoValue;
 //btn copiar
 const $btnCopiarContainer = document.querySelector(".btn-copiar-container");
+
+//variables
+let entradaValue = $entradaElement.value;
+const HIDE_ELEMENT = "hide";
+const UNHIDE_ELEMENT = "unhide";
 
 
 //funciones
@@ -65,13 +73,32 @@ function desencriptarTexto(str){
     return textoEncriptado;
 }
 
+//funcion para ocultar y mostrar elementos ocultos
+
+
 
 //añadir los eventos a los elementos html necesarios
 
 //boton encriptar
 $btnEncriptar.addEventListener("click", () =>{
     entradaValue = $entradaElement.value;
-    $resultadoElement.textContent = encriptarTexto(entradaValue);
+    //mientras el textarea tenga texto
+    if(entradaValue){
+        resultadoValue = encriptarTexto(entradaValue);
+    
+        $resultadoElement.textContent = resultadoValue;
+
+        // //ocultar msj y mostrar los elementos ocultos
+        $mensajeContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
+        // //1. ocultamos el mensaje
+        $resultadoContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
+        $btnCopiarContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
+        
+        // //2. mostramos los elementos añadiendoles la clase unhide
+    }
+    
+
+
 });
 
 //boton desencriptar
@@ -80,3 +107,34 @@ $btnDesencriptar.addEventListener("click", () =>{
     $resultadoElement.textContent = desencriptarTexto(entradaValue);
 });
 
+
+//verificar cuando el textarea del texto a encriptar esta enfocado
+$entradaElement.addEventListener("input", (e) =>{
+    // console.log(typeof $entradaElement.value, $entradaElement.value.length);
+
+    if(!$entradaElement.value){
+        
+        //ocultar respuesta y btn-copiar
+        $resultadoContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
+        $btnCopiarContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
+        
+        // mostrar el mensaje
+        $mensajeContainer.classList.replace(HIDE_ELEMENT,UNHIDE_ELEMENT);
+        
+    }
+        
+
+})
+
+
+$btnCopiar.addEventListener("click", ()=> {
+    let texto = resultadoValue;
+    navigator.clipboard.writeText(resultadoValue)
+	.then(() => {
+ 		console.log("Texto escrito");
+	})
+	.catch(error => {
+		console.log(`Ocurrió un error: ${error}`);
+	})
+
+});
