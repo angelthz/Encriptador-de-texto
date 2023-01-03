@@ -75,7 +75,22 @@ function desencriptarTexto(str){
 
 //funcion para ocultar y mostrar elementos ocultos
 
+function mostrarResultado(){
+    // //ocultar msj y mostrar los elementos ocultos
+    $mensajeContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
+    // //1. ocultamos el mensaje
+    $resultadoContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
+    $btnCopiarContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
+}
 
+function ocultarResultado(){
+    //ocultar respuesta y btn-copiar
+    $resultadoContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
+    $btnCopiarContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
+
+    // mostrar el mensaje
+    $mensajeContainer.classList.replace(HIDE_ELEMENT,UNHIDE_ELEMENT);
+}
 
 //añadir los eventos a los elementos html necesarios
 
@@ -85,16 +100,8 @@ $btnEncriptar.addEventListener("click", () =>{
     //mientras el textarea tenga texto
     if(entradaValue){
         resultadoValue = encriptarTexto(entradaValue);
-    
         $resultadoElement.textContent = resultadoValue;
-
-        // //ocultar msj y mostrar los elementos ocultos
-        $mensajeContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
-        // //1. ocultamos el mensaje
-        $resultadoContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
-        $btnCopiarContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
-        
-        // //2. mostramos los elementos añadiendoles la clase unhide
+        mostrarResultado();
     }
     
 
@@ -104,7 +111,11 @@ $btnEncriptar.addEventListener("click", () =>{
 //boton desencriptar
 $btnDesencriptar.addEventListener("click", () =>{
     entradaValue = $entradaElement.value;
-    $resultadoElement.textContent = desencriptarTexto(entradaValue);
+    if(entradaValue){
+        resultadoValue = desencriptarTexto(entradaValue);
+        $resultadoElement.textContent = resultadoValue;
+        mostrarResultado();
+    }
 });
 
 
@@ -113,14 +124,7 @@ $entradaElement.addEventListener("input", (e) =>{
     // console.log(typeof $entradaElement.value, $entradaElement.value.length);
 
     if(!$entradaElement.value){
-        
-        //ocultar respuesta y btn-copiar
-        $resultadoContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
-        $btnCopiarContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
-        
-        // mostrar el mensaje
-        $mensajeContainer.classList.replace(HIDE_ELEMENT,UNHIDE_ELEMENT);
-        
+        ocultarResultado();
     }
         
 
