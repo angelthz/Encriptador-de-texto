@@ -1,51 +1,64 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-    </style>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="script/main.js" defer></script>
-    <title>Encriptador de texto</title>
-  </head>
+<html lang="en">
 
-  <body>
-    <header class="encabezado">
-      <img id="logo" src="images/Logo.png" alt="logo alura" />
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="script/main.js" defer></script>
+  <title>Encriptador</title>
+</head>
 
-    <section class="entrada">
-      <div class="textarea-container">
-        <textarea id="texto-original" autofocus placeholder="Ingrese el texto aquí"></textarea>
-      </div>
-      <div class="aviso-container">
-        <img src="images/warning.png" />
-        <p>Solo letras minusculas y sin acentos</p>
-      </div>
-      <div class="botones-container">
-        <button id="btn-encriptar">Encriptar</button>
-        <button id="btn-desencriptar">Desencriptar</button>
-      </div>
-    </section>
+<body>
+  <div class="header">
+    <img src="images/logo.svg" alt="logo.png" border="0">
+    <div class="profile">
+      <a href="https://github.com/angelthz" target="_blank"><i class="fa-brands fa-square-github fa-2x"></i></a>
+      <a href="#" target="_blank"><i class="fa-brands fa-codepen fa-2x"></i></a>
+      <a href="#" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+    </div>
+  </div>
+  <div class="input-container">
+    <textarea id="user-input" type="text" placeholder="Ingrese el texto aquí" required autofocus></textarea>
+    <div class="input-msg-container">
+      <img src="images/warning.svg" alt="warning.png" border="0">
+      <span>Solo letras minusculas y sin acentos</span>
+    </div>
+    <div class="input-btn-container">
+      <button id="encrypt-btn" class="btn">Encriptar</button>
+      <button id="decrypt-btn" class="btn">Desencriptar</button>
+    </div>
+  </div>
+  <div class="output-container">
+    <div class="output-msg-container ">
+      <img src="images/munieco.svg" alt="munieco.png" border="0">
+      <h3>Ningun mensaje fue encontrado</h3>
+      <p>Ingresa el texto que desees encriptar o desencriptar</p>
+    </div>
 
-    <section class="salida">
-      <div class="resultado-container hide">
-        <textarea id="texto-resultado" readonly>Result</textarea
-        >
+    <div class="output-result-container">
+      <textarea id="output-result" readonly></textarea>
+      <div class="output-copy-btn">
+        <button id="copy-btn" class="btn-tip">
+          <div class="button-content">
+            <div class="copiar">
+              <span>Copiar</span>
+              <i class="fa-regular fa-copy"></i>
+            </div>
+            <div class="tip">
+              <span>Copiado</span>
+            </div>
+          </div>
+        </button>
       </div>
+    </div>
 
-      <div class="mensaje-container unhide">
-        <img src="images/Munieco.png" alt="Munieco pensando" />
-        <h2>Ningun mensaje fue encontrado</h2>
-        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-      </div>
+  </div>
+</body>
 
-      <div class="btn-copiar-container hide">
-        <button id="btn-copiar">Copiar</button>
-      </div>
-    </section>
-  </body>
 </html>

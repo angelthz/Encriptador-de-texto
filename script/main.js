@@ -1,57 +1,26 @@
-/*
+//textareas
+const inputText = document.getElementById("user-input");
+const resultText = document.getElementById("output-result");
 
-Las "llaves" de encriptación que utilizaremos son las siguientes:
+///botones
+const encryptBtn = document.getElementById("encrypt-btn");
+const decrypBtn = document.getElementById("decrypt-btn");
+const copyBtn = document.getElementById("copy-btn");
 
-La letra "e" es convertida para "enter"
-La letra "i" es convertida para "imes"
-La letra "a" es convertida para "ai"
-La letra "o" es convertida para "ober"
-La letra "u" es convertida para "ufat"
-
-Requisitos:
-- Debe funcionar solo con letras minúsculas
-- No deben ser utilizados letras con acentos ni caracteres especiales
-- Debe ser posible convertir una palabra para la versión encriptada también 
-    devolver una palabra encriptada para su versión original.
-
-*/
+//contenedores
+const outputMsg = document.querySelector(".output-msg-container");
+const outputResult = document.querySelector(".output-result-container");
 
 
+//funcion para ocultar/mostrar elementos
+const showElements = function(){
+    outputMsg.classList.toggle("no-show");
+    outputResult.classList.toggle("no-show");
+};
 
+//funcion para encriptar/desencriptar texcto
 
-//obtner los elemntos html con los cuales vamos a trabajar
-
-//obtener el textarea donde el usuario introduce el texto que quiere encriptar
-const $entradaElement = document.getElementById("texto-original");
-
-
-//obtner cada uno de los botones
-const $btnEncriptar = document.getElementById("btn-encriptar");
-const $btnDesencriptar = document.getElementById("btn-desencriptar");
-const $btnCopiar = document.getElementById("btn-copiar");
-
-
-//obtner el aviso de ningun texto encontrado
-const $mensajeContainer = document.querySelector(".mensaje-container");
-
-//obtener los elementos ocultos
-//resultado
-const $resultadoContainer = document.querySelector(".resultado-container");
-const $resultadoElement = document.getElementById("texto-resultado");
-let resultadoValue;
-//btn copiar
-const $btnCopiarContainer = document.querySelector(".btn-copiar-container");
-
-//variables
-let entradaValue = $entradaElement.value;
-const HIDE_ELEMENT = "hide";
-const UNHIDE_ELEMENT = "unhide";
-
-
-//funciones
-
-//funcion para encriptar el texto
-function encriptarTexto(str) {
+const encryptText = function(str){
     let textoEncriptado;
     textoEncriptado = str.replaceAll("e","enter");
     textoEncriptado = textoEncriptado.replaceAll("i","imes");
@@ -59,11 +28,11 @@ function encriptarTexto(str) {
     textoEncriptado = textoEncriptado.replaceAll("o","ober");
     textoEncriptado = textoEncriptado.replaceAll("u","ufat");
     return textoEncriptado;
-}
+};
 
-//funcion para desencriptar el texto
+//funcion para desencriptar texto
 
-function desencriptarTexto(str){
+const decryptText = function(str){
     let textoEncriptado;
     textoEncriptado = str.replaceAll("enter","e");
     textoEncriptado = textoEncriptado.replaceAll("imes","i");
@@ -73,72 +42,62 @@ function desencriptarTexto(str){
     return textoEncriptado;
 }
 
-//funcion para ocultar y mostrar elementos ocultos
-
-function mostrarResultado(){
-    // //ocultar msj y mostrar los elementos ocultos
-    $mensajeContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
-    // //1. ocultamos el mensaje
-    $resultadoContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
-    $btnCopiarContainer.classList.replace(HIDE_ELEMENT, UNHIDE_ELEMENT);
-}
-
-function ocultarResultado(){
-    //ocultar respuesta y btn-copiar
-    $resultadoContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
-    $btnCopiarContainer.classList.replace(UNHIDE_ELEMENT, HIDE_ELEMENT);
-
-    // mostrar el mensaje
-    $mensajeContainer.classList.replace(HIDE_ELEMENT,UNHIDE_ELEMENT);
-}
-
-//añadir los eventos a los elementos html necesarios
-
-//boton encriptar
-$btnEncriptar.addEventListener("click", () =>{
-    entradaValue = $entradaElement.value;
-    //mientras el textarea tenga texto
-    if(entradaValue){
-        resultadoValue = encriptarTexto(entradaValue);
-        $resultadoElement.textContent = resultadoValue;
-        mostrarResultado();
+//eventos
+encryptBtn.addEventListener("click", e => {
+   
+    if(inputText.value != ""){
+        resultText.textContent = encryptText(inputText.value);
+        if(!outputResult.classList.contains("no-show"))
+            showElements();
     }
-    
+    else{
+        inputText.classList.add("shake");
+    }
 
+    setTimeout(()=>{
+        inputText.classList.remove("shake");
+      }, 500)
 
 });
 
-//boton desencriptar
-$btnDesencriptar.addEventListener("click", () =>{
-    entradaValue = $entradaElement.value;
-    if(entradaValue){
-        resultadoValue = desencriptarTexto(entradaValue);
-        $resultadoElement.textContent = resultadoValue;
-        mostrarResultado();
+
+decrypBtn.addEventListener("click", e => {
+   
+    if(inputText.value != ""){
+        resultText.textContent = decryptText(inputText.value);
+        if(!outputResult.classList.contains("no-show"))
+            showElements();
     }
+    else{
+        inputText.classList.add("shake");
+    }
+
+    setTimeout(()=>{
+        inputText.classList.remove("shake");
+      }, 500)
+
 });
 
 
-//verificar cuando el textarea del texto a encriptar esta enfocado
-$entradaElement.addEventListener("input", (e) =>{
-    // console.log(typeof $entradaElement.value, $entradaElement.value.length);
+inputText.addEventListener("input", e=>{
+    // console.log(!inputText.value)
+    if(inputText.value == ""){
 
-    if(!$entradaElement.value){
-        ocultarResultado();
+        console.log(outputResult.classList.contains("no-show"), outputMsg.classList.contains("no-show"))
+        if(outputResult.classList.contains("no-show") || outputMsg.classList.contains("no-show"))
+            showElements();
+        //     // showElements();
     }
-        
-
-})
-
-
-$btnCopiar.addEventListener("click", ()=> {
-    let texto = resultadoValue;
-    navigator.clipboard.writeText(resultadoValue)
-	.then(() => {
- 		console.log("Texto escrito");
-	})
-	.catch(error => {
-		console.log(`Ocurrió un error: ${error}`);
-	})
-
 });
+
+copyBtn.addEventListener("click", e=>{
+
+    let clipText = resultText.value;
+    navigator.clipboard.writeText(clipText);
+    copyBtn.classList.add("anim-tip");
+
+    setTimeout(()=>{
+        copyBtn.classList.remove("anim-tip");
+    },500);
+});
+
